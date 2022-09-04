@@ -3,12 +3,26 @@ GET http://localhost:3000/loterias
 Content-Type: application/json
 ###
 
-
+# Obter sites de origem disponíveis
+###
 GET http://localhost:3000/loterias/origens
 Content-Type: application/json
 ###
 
-# Obter resultado por concurso
-GET  http://localhost:3000/loterias/origem/Caixa/loteria/mega-sena
+# Obter resultados dos jogos via api da caixa, pela loteria e concurso
+###
+GET http://localhost:3000/loterias/api/loteria/megasena/concurso/2022
+Content-Type: application/json
+###
+
+
+# Obter ultimo resultado por origem e loterias
+## Origens:
+    # Caixa
+    # Sorte-Online
+    # Mega-Loterias
+## Loterias:
+    # mega-sena
+GET  http://localhost:3000/loterias/origem/Mega-Loterias/loteria/mega-sena
 Content-Type: application/json
 ###
