@@ -1,4 +1,14 @@
 # Obter Loterias
-GET http://localhost:3000/
+GET http://localhost:3000/loterias
+Content-Type: application/json
+###
+
+
+GET http://localhost:3000/loterias/origens
+Content-Type: application/json
+###
+
+# Obter resultado por concurso
+GET  http://localhost:3000/loterias/origem/Caixa/loteria/mega-sena
 Content-Type: application/json
 ###
