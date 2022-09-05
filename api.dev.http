@@ -23,6 +23,6 @@ Content-Type: application/json
     # Mega-Loterias
 ## Loterias:
     # mega-sena
-GET  http://localhost:3000/loterias/origem/Mega-Loterias/loteria/mega-sena
+GET  http://localhost:3000/loterias/mega-sena/origem/Mega-Loterias
 Content-Type: application/json
 ###

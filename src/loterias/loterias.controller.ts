@@ -35,10 +35,9 @@ export class LoteriasController {
     }).catch(function (error) {
       console.log("🚀 ~ file: loterias.controller.ts ~ line 41 ~ LoteriasController ~ error", error)
     });
-    // process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
   }
-
-  @Get('/origem/:origem/loteria/:loteria')
+  
+  @Get(':loteria/origem/:origem/')
   async getLatestByLotteries(
     @Param('origem') origem: string,
     @Param('loteria') loteria: string,

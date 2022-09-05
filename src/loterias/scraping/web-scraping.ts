@@ -1,5 +1,7 @@
-import puppeteer from 'puppeteer'
+
 import * as cheerio from 'cheerio';
+import  puppeteer  from 'puppeteer';
+
 import { setTimeout } from "timers/promises";
 import { filterInt } from '../utils/filterInt';
 import { LoteriaResultado } from '../shared/loteria-resultado';
@@ -8,7 +10,8 @@ import { dictionary } from '../constants/dictionary';
 export async function WebScrapingCaixa(lotteries: string) {
   let caixaParametros = dictionary.caixa;
 
-  const browser = await puppeteer.launch();
+
+  let browser = await puppeteer.launch();
   const page = await browser.newPage();
   let urlToScrapping = caixaParametros.url + lotteries + '.aspx';
   await page.goto(urlToScrapping);
@@ -61,11 +64,12 @@ export async function WebScrapingCaixa(lotteries: string) {
   resultado.valorAcumuladoProxConcurso = valorAcumulado
     .split('\n')[1]
     .substring(32);
-  browser.close();
+  await browser.close();
   return resultado;
 }
 
 export async function WebScrapingSorteOnline(lotteries: string) {
+  
     let sorteOnlineParametros = dictionary.sorteOnline;
   
     const browser = await puppeteer.launch();
@@ -164,7 +168,7 @@ export async function WebScrapingSorteOnline(lotteries: string) {
   
     resultado.acumulou = $(megaLoteriasParametros.parametros.acumulou)
       .text()
-      .includes('ACUMULOU!');
+      .includes('Acumulou!');
 
     resultado.dataResultado = $(megaLoteriasParametros.parametros.dataResultado)
       .text();

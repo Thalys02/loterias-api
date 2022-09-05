@@ -26,12 +26,85 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+---
+
+## Api endpoints
+### Request
+``` bash
+# Obter Loterias
+  http://localhost/loterias/
+```
+### Result
+``` bash
+[
+  "mega-sena"
+]
+```
+---
+### Request
+``` bash
+# Obter sites de origem disponíveis
+  http://localhost/loterias/origens
+```
+### Result
+``` bash
+[
+  "Caixa",
+  "Sorte-Online",
+  "Mega-Loterias"
+]
+```
+---
+### Request
+``` bash
+#  Obter ultimo resultado por origem e loterias
+ http://localhost:3000/loterias/mega-sena/origem/Mega-Loterias
+```
+### Result
+``` bash
+{
+  "dezenas": [
+    "08",
+    "17",
+    "49",
+    "51",
+    "52",
+    "53"
+  ],
+  "premiacoes": [
+    {
+      "acertos": "Sena",
+      "vencedores": "-",
+      "premio": "-"
+    },
+    {
+      "acertos": "Quina",
+      "vencedores": "94",
+      "premio": "R$ 49.051,86"
+    },
+    {
+      "acertos": "Quadra",
+      "vencedores": "6665",
+      "premio": "R$ 988,29"
+    }
+  ],
+  "nome": "mega-sena",
+  "concurso": 2516,
+  "acumulou": false,
+  "dataResultado": "03/09/2022",
+  "local": "ESPAÇO DA SORTE em SÃO PAULO, SP",
+  "dataProxConcurso": "08/09",
+  "valorAcumuladoProxConcurso": "R$ 60 Milhões"
+}
+```
+---
+
 ## Installation
 
 ```bash
 $ npm install
 ```
-
+---
 ## Running the app
 
 ```bash
@@ -44,7 +117,17 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+---
+## Running in Docker 
+```bash
+# build image
+$ docker build -t loterias-api-nest .
 
+# run image
+$ docker run -p80:3000 loterias-api-nest
+```
+
+---
 ## Test
 
 ```bash
